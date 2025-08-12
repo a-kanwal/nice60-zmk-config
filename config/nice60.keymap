@@ -16,7 +16,14 @@
 	keymap {
 		compatible = "zmk,keymap";
 		
-		
+		default_layer {
+// ------------------------------------------------------------------------------------------
+// | ESC |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |   BKSP   |
+// | TAB  |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |   "|"   |
+// | CAPS  |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |     ENTER    |
+// |  SHIFT  |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |      SHIFT       |
+// |  CTL  |  WIN  |  ALT  |            SPACE              |  ALT  |  WIN  |  MO(1) |  CTL  |
+// ------------------------------------------------------------------------------------------
 			bindings = <
                                 &kp KP_NUMLOCK  &kp KP_ASTERISK &kp KP_MINUS
                 &kp KP_NUMBER_7 &kp KP_NUMBER_8 &kp KP_NUMBER_9 &kp KP_PLUS
@@ -26,6 +33,21 @@
             >;
 		};
 
+		func_layer {
+// ------------------------------------------------------------------------------------------------
+// | BT CLR | F1  | F2  | F3  | F4  | F5  | F6  | F7  | F8  | F9  | F10  | F11 | F12 | EFFECT REV |
+// |  BT 1   |   |  UP |   | HUEUP | SATUP | BRIUP | SPDUP |   |     |    |     |     |           |
+// |   BT 2   | LT |  DN  | RT | HUEDN | SATDN | BRIDN | SPDDN |   |     |   |     |  EFFECT FORW |
+// |    BT 3     |     |      |      |     |     |     |     |     |     |     |                  |
+// |   BT 4  |      |      |             TOG RGB                | PRT SCR |       |       |  DEL  |
+// ------------------------------------------------------------------------------------------------
+			bindings = <
+                                &none           &sys_reset      &bootloader
+                &out OUT_TOG    &out OUT_USB    &out OUT_BLE    &none
+                &bt BT_SEL 0    &bt BT_PRV      &bt BT_NXT      &bt BT_CLR
+                &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &trans
+                &kp C_MUTE      &none           &none           &none
+             >;
 		};
 	};
 };
